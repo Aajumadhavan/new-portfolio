@@ -47,10 +47,10 @@ export default function Footer() {
             className="font-display font-bold text-lg tracking-wider text-white flex items-center gap-2 group cursor-none mb-3"
           >
             <span className="h-2 w-2 rounded-full bg-cyan-400 group-hover:scale-150 transition-transform duration-300"></span>
-            GROWTH<span className="text-indigo-400 font-light">LAB</span>
+            MADHAVA<span className="text-indigo-400 font-light">RAJ</span>
           </a>
           <p className="text-[10px] text-slate-500 font-sans">
-            © {new Date().getFullYear()} GrowthLab. All rights reserved. Created for Chaitanya Emani.
+            © {new Date().getFullYear()}. All rights reserved.
           </p>
         </div>
 

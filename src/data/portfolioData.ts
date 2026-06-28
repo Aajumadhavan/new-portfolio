@@ -20,7 +20,6 @@ export interface ExperienceItem {
   location: string;
   responsibilities: string[];
   skills: string[];
-  logoPlaceholder: string;
 }
 
 export interface SkillCategory {
@@ -88,6 +87,7 @@ export const navItems = [
   { label: "Services", href: "#services" },
   { label: "Portfolio", href: "#portfolio" },
   { label: "Experience", href: "#experience" },
+  { label: "Skills", href: '#skills' },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -113,9 +113,9 @@ export const servicesData: Service[] = [
   },
   {
     id: "srv-3",
-    title: "LinkedIn B2B Advertising",
-    description: "Hyper-targeted B2B campaigns reaching decision-makers, executives, and precise corporate audiences to drive quality leads.",
-    iconName: "linkedin-ads",
+    title: "Shopify Store Setup & Design",
+    description: "Building high-converting, fully customized Shopify e-commerce stores with clean themes, product setups, and app integrations.",
+    iconName: "shopify",
   },
   {
     id: "srv-4",
@@ -174,208 +174,266 @@ export const servicesData: Service[] = [
 ];
 
 export const portfolioItems: PortfolioItem[] = [
+  // --- LOGOS ---
   {
-    id: "port-1",
-    title: "SaaS Launch Social Creatives",
-    category: "Social Media",
-    image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80",
-    screenshots: [
-      "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1542744094-3a31f103e35f?auto=format&fit=crop&w=800&q=80"
-    ],
-    description: "A series of high-converting social media posts designed to generate sign-ups for a newly launched B2B collaboration tool.",
-    client: "CollabSync Inc.",
-    tools: ["Photoshop", "Illustrator", "Canva"],
-    challenge: "The client needed templates that were visually distinct in cluttered LinkedIn feeds and could clearly convey product utility under 2 seconds.",
-    solution: "Created templates utilizing a striking dark-indigo theme accented by high-contrast cyan, bold typography, and visual UI snippets highlighting core features.",
-    outcome: "Helped achieve a 3.4% click-through rate across LinkedIn sponsored content, driving 1,200 initial platform sign-ups within 14 days."
+    id: "port-logo-1",
+    title: "Minimalist Corporate Logo",
+    category: "Logos",
+    image: "/logos/1.png",
+    description: "Sleek and minimalist corporate brand logo designed for a professional business identity.",
+    client: "Corporate Ventures",
+    tools: ["Illustrator", "Figma"],
+    challenge: "Creating a modern and clean emblem that retains readability at small scales like icons or headers.",
+    solution: "Designed a geometric vector logo utilizing negative space and crisp typography.",
+    outcome: "Successfully launched as primary brand identity across corporate stationery and web layouts."
   },
   {
-    id: "port-2",
-    title: "Modern FinTech Logo Redesign",
+    id: "port-logo-2",
+    title: "Vibrant Brand Logomark",
     category: "Logos",
-    image: "https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=800&q=80",
-    beforeAfter: {
-      before: "https://images.unsplash.com/photo-1618005198143-e52834643034?auto=format&fit=crop&w=800&q=80", // Old concept logo placeholder
-      after: "https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=800&q=80", // Modern logo
-    },
-    description: "Comprehensive rebranding and logo modernization for a retail banking platform to establish authority among millennial investors.",
+    image: "/logos/2.png",
+    description: "A bright and energetic brand logomark built for a creative modern enterprise.",
+    client: "Vibe Studios",
+    tools: ["Illustrator"],
+    challenge: "Refining visual metaphors to express brand agility and youthfulness without cluttering.",
+    solution: "Formulated a dynamic custom vector badge with high-contrast gradients.",
+    outcome: "Boosted social media engagement and brand recall across digital product banners."
+  },
+  {
+    id: "port-logo-3",
+    title: "Secure FinTech Identity",
+    category: "Logos",
+    image: "/logos/3.png",
+    description: "A professional and solid emblem designed for a retail banking platform to establish authority.",
     client: "Apex Wealth",
     tools: ["Illustrator", "Figma"],
-    challenge: "The legacy identity was outdated and hard to scale down to mobile app icons or favicons, lacking a cohesive modern feel.",
-    solution: "Designed a geometric vector logo combining an upward-pointing arrow and a stylized shield, representing growth and asset security, styled with a sleek gradient.",
-    outcome: "Delivered a full vector system with responsive logo variations, brand guideline document, and SVG exports, resulting in 100% positive executive feedback."
+    challenge: "Combining traditional elements of trust with the modern aesthetics of digital-first fintech platforms.",
+    solution: "Created a shield-inspired geometric vector monogram using clean gradient transitions.",
+    outcome: "Helped unify their web interface, mobile app favicon, and corporate presentations."
   },
   {
-    id: "port-3",
-    title: "Google Ads Growth Campaign",
-    category: "Campaigns",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
-    description: "Paid search campaign targeting premium corporate buyers for an enterprise cybersecurity vendor.",
-    client: "Cybershield Tech",
-    tools: ["Google Ads", "Google Analytics 4", "Google Tag Manager"],
-    challenge: "High cost-per-lead (CPL) exceeding $150 and low search query relevance triggering budget waste.",
-    solution: "Restructured the search account into single-intent groups, applied negative keywords aggressively, and built interactive landing pages matched to precise user queries.",
-    outcome: "Reduced CPL by 42% (from $158 to $91) while increasing qualified demo requests by 65% over a 90-day cycle."
-  },
-  {
-    id: "port-4",
-    title: "Crypto Platform Product Poster",
-    category: "Posters",
-    image: "https://images.unsplash.com/photo-1634973357973-f2ed255753e1?auto=format&fit=crop&w=800&q=80",
-    description: "A promotional 3D abstract style poster for a decentralized finance dashboard release, used at physical conferences and online banner placements.",
-    client: "DeFi-Core",
-    tools: ["Photoshop", "Cinema 4D"],
-    challenge: "Creating visual depth that aligns with the complex theme of decentralized liquidity pools while ensuring high legibility of text.",
-    solution: "Designed a glowing glassmorphic 3D rendering centered around a sphere, layering deep violet and neon purple gradients with clean typography overlay.",
-    outcome: "Created significant buzz at the Token2049 conference booth, driving over 5,000 QR code scans leading to app downloads."
-  },
-  {
-    id: "port-5",
-    title: "Ultimate SEO Strategy Guide",
-    category: "Blogs",
-    image: "https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=800&q=80",
-    pdfUrl: "/public/resume/dummy.pdf", // Can link to a pdf document
-    description: "A comprehensive, 4,500-word educational guide explaining the mechanics of search engine topical authority and semantic SEO.",
-    client: "RankGrow Media",
-    tools: ["WordPress", "SurferSEO", "Notion", "ChatGPT"],
-    challenge: "Ranking for the highly competitive keyword 'Topical Authority Guide' which is dominated by high Domain Authority sites.",
-    solution: "Built a detailed pillar page answering all core subtopics, with custom graphics, schema markup, and external source integrations.",
-    outcome: "Achieved a Page 1 Google ranking (Position 4) in 6 weeks, driving 4,500+ organic views monthly with an average dwell time of 5.5 minutes."
-  },
-  {
-    id: "port-6",
-    title: "Real Estate Digital Brochure",
-    category: "Brochures",
-    image: "https://images.unsplash.com/photo-1586075010923-2dd4570fb338?auto=format&fit=crop&w=800&q=80",
-    description: "A multi-page interactive PDF brochure showcasing a luxury residential high-rise project in downtown Seattle.",
-    client: "Aura Developers",
-    tools: ["Illustrator", "InDesign"],
-    challenge: "Conveying exclusivity and luxury layouts inside a standard digital layout shared over WhatsApp and email.",
-    solution: "Implemented dark background layers, golden grid lines, clean margins, high-quality architecture photos, and integrated interactive call links directly in the PDF.",
-    outcome: "Distributed to 400+ high-net-worth individuals, resulting in 28 private viewing bookings within 30 days."
-  },
-  {
-    id: "port-7",
-    title: "Black Friday Sale Ad Banners",
-    category: "Banners",
-    image: "https://images.unsplash.com/photo-1563013544-824ae1d704d3?auto=format&fit=crop&w=800&q=80",
-    description: "A suite of responsive web banners (leaderboard, skyscraper, square) for an e-commerce fashion brand's seasonal sale.",
+    id: "port-logo-4",
+    title: "E-Commerce Monogram Mark",
+    category: "Logos",
+    image: "/logos/4.png",
+    description: "A friendly and structured vector signature mark for a direct-to-consumer online shop.",
     client: "VogueThreads",
-    tools: ["Photoshop", "Illustrator"],
-    challenge: "Maintaining brand guidelines while displaying heavily discounted pricing labels clearly at various screen dimensions.",
-    solution: "Developed an dynamic design system with a high-contrast red-orange button palette, transparent card overlays, and bold countdown highlights.",
-    outcome: "Used across display retargeting channels, delivering a 2.1% CTR and contributing to a record $120k sales day."
-  }
-];
-
-export const caseStudiesData: CaseStudy[] = [
-  {
-    id: "case-1",
-    title: "E-Commerce Return on Ad Spend (ROAS) Optimization",
-    category: "Meta & Google Ads",
-    problem: "An e-commerce brand was experiencing declining ROAS (1.8x) due to broad targeting, rising CPMs on Meta, and unoptimized creative performance.",
-    solution: "Restructured the acquisition funnel with high-intent Meta catalogs, custom audience lookalikes, and broad-match Google Search campaigns paired with negative lists. Designed 25+ new direct-response video creatives featuring user testimonials.",
-    tools: ["Meta Ads Manager", "Google Ads", "TripleWhale", "Photoshop", "GA4"],
-    metrics: [
-      { label: "ROAS Increase", value: 165, suffix: "%" },
-      { label: "Cost Per Acquisition", value: 34, suffix: "% Reduction", prefix: "-" },
-      { label: "Purchase Value Generated", value: 450, suffix: "k+", prefix: "$" },
-    ],
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
+    tools: ["Illustrator"],
+    challenge: "Creating an emblem that looks premium on physical clothing labels while staying high-contrast on mobile.",
+    solution: "Crafted a signature style monogram using custom letter curves and anchor points.",
+    outcome: "Improvised the package unboxing experience and bolstered secondary brand branding."
   },
   {
-    id: "case-2",
-    title: "B2B SaaS Lead Generation & Content Funnel Setup",
-    category: "B2B LinkedIn & SEO",
-    problem: "A security SaaS software provider struggled to generate qualified enterprise demos, relying on expensive and uncalibrated outbound sequences.",
-    solution: "Built a content hub focused on regulatory compliance topics (SOC2, GDPR). Distributed these guides via Lead Gen forms on LinkedIn targeting CIOs and CTOs, coupled with retargeting ads highlighting social proof.",
-    tools: ["LinkedIn Campaign Manager", "HubSpot", "SurferSEO", "Illustrator"],
-    metrics: [
-      { label: "Qualified Leads", value: 240, suffix: "% Increase" },
-      { label: "Demo Booking Cost", value: 48, suffix: "% Drop", prefix: "-" },
-      { label: "Pipeline Created", value: 1.2, suffix: "M+", prefix: "$" },
-    ],
-    image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=80",
-  }
-];
+    id: "port-logo-5",
+    title: "Geometric Software Logo",
+    category: "Logos",
+    image: "/logos/5.png",
+    description: "A forward-looking geometric vector logo for a collaborative cloud workspace.",
+    client: "CollabSync Inc.",
+    tools: ["Figma"],
+    challenge: "Designing a symbol that communicates data synchronization and fluid workflow visually.",
+    solution: "Implemented overlapping semi-transparent gradients forming a clean infinity loop.",
+    outcome: "Established a professional aesthetic featured prominently on the SaaS web application dashboard."
+  },
+  {
+    id: "port-logo-6",
+    title: "Signature Professional Mark",
+    category: "Logos",
+    image: "/logos/6.png",
+    description: "A refined and elegant monogram designed for executive personal branding.",
+    client: "Elite Professional",
+    tools: ["Illustrator"],
+    challenge: "Achieving high typographic legibility in a custom cursive script emblem.",
+    solution: "Perfected vector curves and widths to maintain clarity on print business cards and digital signatures.",
+    outcome: "Provided a responsive vector asset family suitable for both dark and light backdrops."
+  },
+
+  // --- POSTERS ---
+  {
+    id: "port-poster-ghee",
+    title: "Traditional Pure Ghee & Oil Poster",
+    category: "Posters",
+    image: "/posters/Pure Ghee. Pure Oil. Pure Tradition.png",
+    description: "A rich product poster highlighting purity, heritage, and organic premium standards for local audiences.",
+    client: "Traditional Foods Co.",
+    tools: ["Photoshop", "Canva"],
+    challenge: "Conveying high-quality food texture and traditional brand warmth through digital ad layouts.",
+    solution: "Used golden organic gradients, decorative borders, high-resolution product layout, and classical fonts.",
+    outcome: "Highly successful social print ad driving a 35% increase in purchase inquiries."
+  },
+  {
+    id: "port-poster-ds",
+    title: "Dynamic Data Science Course Poster",
+    category: "Posters",
+    image: "/posters/Dynamic Data Science Course Poster.png",
+    description: "Tech educational promotional banner designed to drive student registrations and career transitions.",
+    client: "Acmegrade",
+    tools: ["Photoshop", "Illustrator"],
+    challenge: "Structuring dense academic curriculum details and registration steps without looking cluttered.",
+    solution: "Separated information utilizing high-contrast grids, custom data vector shapes, and bold calls-to-action.",
+    outcome: "Contributed to 400+ student registrations during the course enrollment campaign."
+  },
+  {
+    id: "port-poster-mech",
+    title: "Mechanical Engineering Career Program",
+    category: "Posters",
+    image: "/posters/Launch Your Mech Engineering Career.png",
+    description: "Sleek, high-impact career orientation poster targeting mechanical engineering graduates.",
+    client: "Nireerkshan Services",
+    tools: ["Canva", "Photoshop"],
+    challenge: "Appealing to engineering graduates while displaying curriculum modules clearly.",
+    solution: "Designed a clean industrial layout using vector schematics and bold high-contrast fonts.",
+    outcome: "Distributed to 10+ college campus boards, driving substantial batch enrollment."
+  },
+  {
+    id: "port-poster-explore",
+    title: "Explore Outdoor Adventure Poster",
+    category: "Posters",
+    image: "/posters/Explore.png",
+    description: "Scenic and motivational adventure travel poster designed for digital placement.",
+    client: "Wanderlust Co.",
+    tools: ["Photoshop", "Lightroom"],
+    challenge: "Color-grading photo assets to capture a sense of wonder and vastness.",
+    solution: "Layered deep forest green tones, typographic masking, and rich lighting adjustments.",
+    outcome: "Widely shared across Instagram and Pinterest travel boards."
+  },
+  {
+    id: "port-poster-ny",
+    title: "New Year Special Promo Poster",
+    category: "Posters",
+    image: "/posters/New year special.png",
+    description: "Festive promotional discount poster highlighting holiday savings and services.",
+    client: "Sun Associate Finance",
+    tools: ["Canva", "Photoshop"],
+    challenge: "Conveying high-energy holiday savings without feeling cheap.",
+    solution: "Utilized rich purple and gold gradients combined with elegant typography and clean product mockups.",
+    outcome: "Led to a 25% boost in client acquisitions during the holiday promotion week."
+  },
+  {
+    id: "port-poster-acme",
+    title: "Acmegrade Tech Career Drive",
+    category: "Posters",
+    image: "/posters/Acmegrade Data Science Poster 916 Tech Career Drive.png",
+    description: "Corporate recruitment and skill-building drive poster targeting tech career paths.",
+    client: "Acmegrade / Tech Career Drive",
+    tools: ["Photoshop", "Canva"],
+    challenge: "Creating visual depth that aligns with the corporate tech environment.",
+    solution: "Designed a modern layout with neon accents and structured typographic hierarchies.",
+    outcome: "Increased career drive sign-ups by 45% compared to previous cycles."
+  },
+  {
+    id: "port-poster-12",
+    title: "Corporate Event Promo Poster",
+    category: "Posters",
+    image: "/posters/12.png",
+    description: "Clean corporate layout designed for business summits and professional gatherings.",
+    client: "Corporate Alliance",
+    tools: ["Canva", "Illustrator"],
+    challenge: "Balancing multiple corporate logos and speaker headshots while maintaining visual harmony.",
+    solution: "Implemented a solid grids-and-columns layout with elegant dark backgrounds.",
+    outcome: "Attracted 500+ attendees to the virtual conference platform."
+  },
+  {
+    id: "port-poster-14",
+    title: "Product Marketing Ad Poster",
+    category: "Posters",
+    image: "/posters/14.png",
+    description: "Conversion-focused product display ad poster highlighting premium features.",
+    client: "D2C Brands",
+    tools: ["Photoshop", "Lightroom"],
+    challenge: "Ensuring maximum product focus in an dynamic social feed banner format.",
+    solution: "Utilized clean product shadows, geometric backdrops, and bold offer callouts.",
+    outcome: "Successfully ran on Meta platform retargeting, resulting in a 2.8% conversion rate."
+  },
+  {
+    id: "port-poster-15",
+    title: "Social Awareness Campaign",
+    category: "Posters",
+    image: "/posters/15.png",
+    description: "Creative storytelling poster aiming to drive awareness and community support.",
+    client: "Civic Coalition",
+    tools: ["Photoshop", "Illustrator"],
+    challenge: "Creating an emotionally resonant design that encourages community involvement.",
+    solution: "Created custom vector graphics depicting human cooperation, combined with high-contrast text.",
+    outcome: "Shared by 50+ local organizations, bringing valuable awareness to the initiative."
+  },];
 
 export const experienceData: ExperienceItem[] = [
   {
     id: "exp-1",
     company: "Codingmart Technologies",
     role: "Performance Marketer & Creative Designer",
-    duration: "Jan 2024 - Present",
+    duration: "Mar 2024 - Present",
     location: "Bengaluru, India",
     responsibilities: [
-      "Strategized and executed search and social ad campaigns across Google Ads, Meta Ads, and LinkedIn Ads, managing budgets exceeding $15,000 monthly.",
-      "Designed high-converting landing pages and visual assets (logos, display banners, brochures, social templates) reducing developer reliance.",
-      "Conducted extensive copywriting for SEO-driven blogs, ad copies, email newsletters, and conversion-focused sales funnels.",
-      "Analyzed web analytics using GA4, GTM, and Looker Studio, implementing server-side API setups to capture attribution accurately."
+      "Design social media posters using Canva and Photoshop for both organic posts and paid campaigns",
+      "Create engaging content for blogs and articles published on the company website",
+      "Analyze poster performance, reach, and audience engagement metrics to optimize future content",
+      "Create and manage paid ad campaigns across Google Ads, Facebook/Instagram Ads, LinkedIn, and other platforms.",
+      "Collaborate with the sales team to align ad messaging with customer inquiries and optimize the sales funnel for better conversion",
+      "Monitor key metrics such as CTR, CPA, CPC, and engagement rates to drive data-driven decisions"
     ],
-    skills: ["Google Ads", "Meta Ads", "LinkedIn Ads", "GA4", "GTM", "Photoshop", "Illustrator", "SEO Copywriting"],
-    logoPlaceholder: "CM"
+    skills: ["Canva", "Adobe Photoshop", "Figma", "AI Design Tools", "Social Media Marketing", "SEO", "Content Writing", "Microsoft Office", "Google Analytics"],
   },
   {
     id: "exp-2",
-    company: "Freelance Services",
-    role: "Digital Marketer & Graphic Designer",
-    duration: "Aug 2022 - Dec 2023",
+    company: "Sun Associate ",
+    role: "Freelancer",
+    duration: "Jul 2025 - Oct 2025",
     location: "Remote",
     responsibilities: [
-      "Offered branding, visual design, and social media advertising services to local businesses and small-scale startups.",
-      "Designed and scaled logo brands and cohesive branding kits (typography, palette, patterns) for 15+ micro-brands.",
-      "Created content calendars, written review articles, and launched Meta ads resulting in organic and paid subscriber growth."
+      " Successfully spearheaded a digital marketing project for Sun Associate Finance, launching targeted ad campaigns via Meta Ads Manager on Facebook and Instagram, while creating high-quality graphic design assets (social media posters, ad creatives, and landing page visuals) using Canva and Adobe Photoshop to enhance brand appeal.",
+      "Optimized 6 ad campaigns using audience insights for maximum lead generation, and designed professional creative assets (including infographics, ad banners, and campaign visuals) to build trust, improve engagement, and boost conversions.",
+      "Leveraged trending hashtags and created regional language content in Tamil and English for local relevance, alongside designing custom graphics for social media posts that expanded reach to loan and finance audiences."
     ],
-    skills: ["Meta Ads", "Canva", "Photoshop", "Brand Design", "WordPress", "SEO Copywriting"],
-    logoPlaceholder: "FL"
+    skills: ["Meta Ads", "Canva", "Adobe Photoshop", "CTR", "Social Media Marketing", "ROI Optimisation"],
   },
   {
     id: "exp-3",
     company: "Vedantu",
-    role: "Academic Associate",
-    duration: "Jun 2021 - Jul 2022",
-    location: "Bengaluru, India (Hybrid)",
+    role: "Academic Associate & DTP",
+    duration: "Feb 2024 - Mar 2025",
+    location: "Tiruchirapalli, India",
     responsibilities: [
-      "Mentored and guided students in learning paths, monitoring academic performance logs.",
-      "Created structured study materials, slides, and graphical summaries to simplify complex technical topics.",
-      "Leveraged CRM systems (Salesforce) and Excel to manage student engagement files and project pipelines."
+      "Efficiently prepare and format test papers to meet strict deadlines. Design innovative, engaging study materials like PowerPoint slides that transform learning. Handle assignment formatting, uploading, and organization with precision.",
+      "Lead my team to consistently hit task deadlines while providing top-notch administrative support to faculty—scheduling meetings, creating materials, and streamlining student communications.",
+      "Coordinate courses seamlessly by distributing syllabi, textbooks, and resources on time.",
+      "Build a motivating learning environment, sync course schedules with faculty, and partner across departments for smooth academic operations that drive results."
     ],
-    skills: ["CRM", "Excel", "Public Speaking", "Content Creation"],
-    logoPlaceholder: "VD"
+    skills: ["Computer Information Systems", "Inventory Management", "Smartboard", "content writing", "Technical Support", "Library Management", "Google Sheets"],
   },
   {
     id: "exp-4",
-    company: "Nireerkshan Engineering",
-    role: "Engineer Trainee",
-    duration: "Oct 2020 - May 2021",
+    company: "Nireerkshan Engineering Services",
+    role: "Chartered Engineer Trainee",
+    duration: "Jan 2023 - Jan 2024",
     location: "Chennai, India",
     responsibilities: [
-      "Monitored field assembly lines and verified product tolerances according to blueprints.",
-      "Compiled engineering quality test logs, tracking deviations in mechanical system blueprints.",
-      "Supported technical documentation tasks and draft reports using AutoCAD."
+      "Oversaw complete company records and documentation for import/export operations",
+      "Guaranteeing 100% accuracy, full regulatory compliance, and lightning-fast goods clearance to keep business moving seamlessly.",
+      "Crafted precise, high-impact quotations for competitive tender submissions, fueling client wins and accelerating business growth.",
+      "Streamlined all communications with clients and customs officials for effortless cargo processing, cutting delays and boosting operational efficiency."
     ],
-    skills: ["AutoCAD", "Excel", "Technical Documentation", "Quality Control"],
-    logoPlaceholder: "NE"
+    skills: ["Inventory Management", "Creative Content Creation", "Tally ERP", "Content typing"],
   }
 ];
 
 export const skillsData: SkillCategory[] = [
   {
-    category: "Performance Marketing",
-    items: ["Google Ads", "Meta Ads", "LinkedIn Ads", "Google Analytics (GA4)", "Google Tag Manager (GTM)", "A/B Testing", "Conversion Funnels", "Looker Studio"]
+    category: "Paid Advertising & SEM",
+    items: ["Meta Ads Manager", "Google Ads (SEM)", "Amazon Ads", "Social Media Marketing", "Meta Pixel (SMM)", "Campaign Manager"]
+  },
+  {
+    category: "SEO & Content Management",
+    items: ["SEO (On-page, Off-page, Technical, Local)", "Content Writing", "WordPress", "Shopify", "Yoast SEO", "Ahrefs"]
   },
   {
     category: "Creative & Brand Design",
-    items: ["Canva", "Adobe Photoshop", "Adobe Illustrator", "Figma", "Logo Design", "Brand Guidelines", "Print Brochures", "Ad Banner Layouts"]
+    items: ["Canva", "Adobe Photoshop", "Figma", "AI Design Tools"]
   },
   {
-    category: "Content & Copywriting",
-    items: ["SEO Article Writing", "Blogging", "Marketing Copywriting", "Sales Page Structure", "Keyword Research", "On-Page Optimization"]
-  },
-  {
-    category: "Tools & Productivity",
-    items: ["Microsoft Excel", "WordPress", "Notion", "ChatGPT", "Google Gemini", "Claude AI", "Asana / Trello", "Slack"]
+    category: "Analytics & Data Tools",
+    items: ["Google Analytical Tools", "Microsoft Excel", "Semrush", "Page Speed Optimization"]
   }
 ];
 

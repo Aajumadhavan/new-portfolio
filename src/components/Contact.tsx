@@ -14,28 +14,52 @@ export default function Contact() {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate API submission
-    setTimeout(() => {
+    setErrorMessage("");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: process.env.NEXT_PUBLIC_WEB3FORMS_KEY || "YOUR_ACCESS_KEY_HERE", // Set in .env
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+        }),
+      });
+
+      const data = await response.json();
+      if (data.success) {
+        setIsSuccess(true);
+        setFormData({ name: "", email: "", subject: "", message: "" });
+      } else {
+        setErrorMessage(data.message || "Failed to submit the form. Please check your Access Key.");
+      }
+    } catch {
+      setErrorMessage("An unexpected error occurred. Please check your internet connection.");
+    } finally {
       setIsSubmitting(false);
-      setIsSuccess(true);
-      setFormData({ name: "", email: "", subject: "", message: "" });
-    }, 1500);
+    }
   };
 
   return (
     <section id="contact" className="relative py-24 bg-[#030014] overflow-hidden">
       {/* Background gradients */}
-      <div className="absolute top-1/2 left-0 w-[450px] h-[450px] bg-indigo-600/5 rounded-full blur-[130px] pointer-events-none" />
+      <div className="absolute top-1/2 left-0 w-[450px] h-[450px] bg-indigo-600/5 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Section Heading */}
@@ -44,13 +68,13 @@ export default function Contact() {
             Contact
           </span>
           <h2 className="text-3xl md:text-4xl font-display font-black text-white">
-            Let's Scale{" "}
+            Let&apos;s Connect &{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-400">
-              Your Numbers
+              Collaborate
             </span>
           </h2>
           <p className="text-slate-400 text-xs md:text-sm max-w-sm mt-4 leading-relaxed font-sans">
-            Have a campaign that needs auditing, or a brand that needs a visual launch? Send a message below.
+            Have a design project or creative campaign in mind? Send a message below.
           </p>
         </div>
 
@@ -63,7 +87,7 @@ export default function Contact() {
                   Contact Information
                 </h3>
                 <p className="text-slate-400 text-xs leading-relaxed font-sans">
-                  Reach out directly for freelance contracts, consultation packages, or full-time roles.
+                  Reach out directly for freelance design contracts, design audits, or collaboration opportunities.
                 </p>
               </div>
 
@@ -79,10 +103,10 @@ export default function Contact() {
                       Email
                     </span>
                     <a
-                      href="mailto:chaitanya.emani@example.com"
+                      href="mailto:stmmadhavaraj07@gmail.com"
                       className="text-white text-xs hover:text-cyan-400 transition-colors font-display font-medium cursor-none"
                     >
-                      chaitanya.emani@example.com
+                      stmmadhavaraj07@gmail.com
                     </a>
                   </div>
                 </div>
@@ -96,12 +120,9 @@ export default function Contact() {
                     <span className="text-[9px] uppercase font-bold tracking-wider text-slate-400 font-display block">
                       Phone / Mobile
                     </span>
-                    <a
-                      href="tel:+919876543210"
-                      className="text-white text-xs hover:text-cyan-400 transition-colors font-display font-medium cursor-none"
-                    >
-                      +91 98765 43210
-                    </a>
+                    <span className="text-white text-xs font-display font-medium">
+                      +91 90423 50440
+                    </span>
                   </div>
                 </div>
 
@@ -112,14 +133,14 @@ export default function Contact() {
                   </div>
                   <div>
                     <span className="text-[9px] uppercase font-bold tracking-wider text-slate-400 font-display block">
-                      LinkedIn Profiler
+                      LinkedIn Profile
                     </span>
                     <a
-                      href="https://linkedin.com"
+                      href="https://www.linkedin.com/in/t-s-madhavaraj-stm2000/"
                       target="_blank"
                       className="text-white text-xs hover:text-cyan-400 transition-colors font-display font-medium cursor-none"
                     >
-                      linkedin.com/in/chaitanya-emani
+                      linkedin.com/in/t-s-madhavaraj-stm2000
                     </a>
                   </div>
                 </div>
@@ -134,7 +155,7 @@ export default function Contact() {
                       Location
                     </span>
                     <span className="text-white text-xs font-display font-medium">
-                      Bengaluru, Karnataka, India
+                      Chennai, Tamil Nadu, India
                     </span>
                   </div>
                 </div>
@@ -227,6 +248,13 @@ export default function Contact() {
                     />
                   </div>
 
+                  {/* Error Message */}
+                  {errorMessage && (
+                    <div className="text-red-400 text-[11px] font-medium font-sans">
+                      {errorMessage}
+                    </div>
+                  )}
+
                   {/* Submit Button */}
                   <button
                     type="submit"
@@ -253,14 +281,14 @@ export default function Contact() {
                   >
                     <FiCheckCircle className="w-12 h-12" />
                   </motion.div>
-                  
+
                   <h3 className="text-lg md:text-xl font-display font-black text-white mb-2">
                     Message Sent Successfully!
                   </h3>
                   <p className="text-slate-400 text-xs max-w-sm mb-8 font-sans">
                     Thank you for reaching out. Your brief has been registered. I will respond to your inbox shortly.
                   </p>
-                  
+
                   <button
                     onClick={() => setIsSuccess(false)}
                     className="px-6 py-2.5 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 text-[9px] uppercase font-bold tracking-wider text-white transition-colors cursor-none"

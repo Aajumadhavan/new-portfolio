@@ -55,7 +55,7 @@ export default function Testimonials() {
               </span>
 
               <p className="text-slate-300 text-xs md:text-sm italic leading-relaxed mb-8 relative z-10 font-sans">
-                "{active.message}"
+                &ldquo;{active.message}&rdquo;
               </p>
 
               {/* Avatar + Author details */}

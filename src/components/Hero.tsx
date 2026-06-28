@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { FiLinkedin, FiInstagram, FiMail } from "react-icons/fi";
+import { FiLinkedin, FiMail, FiGithub } from "react-icons/fi";
 import Magnetic from "./ui/Magnetic";
 
 const rotatingTexts = [
@@ -45,7 +45,7 @@ export default function Hero() {
       <div className="absolute inset-0 z-0">
         {/* CSS Grid Pattern */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]" />
-        
+
         {/* Radial Gradients (Ambient glows) */}
         <div className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-indigo-600/10 rounded-full blur-[100px] animate-pulse-slow" />
         <div className="absolute bottom-1/4 right-1/4 translate-x-1/2 translate-y-1/2 w-[450px] h-[450px] bg-cyan-500/10 rounded-full blur-[120px] animate-pulse-slow" />
@@ -107,7 +107,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.1 }}
             className="text-4xl md:text-5xl lg:text-6xl font-display font-black leading-none mb-6 text-white"
           >
-            Performance Marketer <br />
+            Digital Marketer <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-cyan-400 text-glow">
               & Creative Designer
             </span>
@@ -139,8 +139,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-xs md:text-sm text-slate-400 max-w-xl mb-10 leading-relaxed font-sans"
           >
-            I create high-converting digital marketing campaigns, engaging creatives,
-            SEO-focused content, and data-driven strategies that help brands scale dynamically.
+            Where creativity meets strategy. Passionate about transforming ideas into impactful digital experiences through innovative design, AI-powered creativity, performance marketing, SEO, WordPress, and data-driven insights that help brands grow with confidence.
           </motion.p>
 
           {/* CTA Buttons */}
@@ -177,7 +176,8 @@ export default function Hero() {
             </Magnetic>
 
             <a
-              href="#"
+              href="/resume/resume.pdf"
+              download="Madhava_Raj_Resume.pdf"
               className="text-slate-400 hover:text-white text-[10px] font-bold uppercase tracking-wider underline underline-offset-4 decoration-cyan-400 transition-colors py-2 px-3 cursor-none"
             >
               Download Resume
@@ -201,12 +201,12 @@ export default function Hero() {
             />
             {/* Gradient Glow */}
             <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-indigo-500 to-cyan-500 blur-2xl opacity-30 animate-pulse-slow" />
-            
+
             {/* Visual Profile Placeholder */}
             <div className="relative w-full h-full rounded-full border border-white/10 overflow-hidden bg-gradient-to-b from-white/5 to-white/[0.01] backdrop-blur-xl flex flex-col items-center justify-center p-6 text-center">
               {/* Inner Glowing Orb */}
               <div className="absolute w-36 h-36 rounded-full bg-gradient-to-tr from-indigo-600 to-cyan-500 opacity-20 blur-xl" />
-              
+
               {/* Symbolic Avatar Shape */}
               <div className="relative z-10 w-24 h-24 rounded-full bg-slate-900 border border-white/10 flex items-center justify-center mb-4">
                 <svg
@@ -225,15 +225,15 @@ export default function Hero() {
               </div>
 
               <span className="relative z-10 text-sm font-display font-semibold tracking-wider text-white">
-                Chaitanya Emani
+                MADHAVA RAJ
               </span>
               <span className="relative z-10 text-[9px] uppercase font-bold tracking-widest text-cyan-400/80 mt-1">
-                Data-Driven Creative
+                Digital Marketer & Graphic Designer
               </span>
               <div className="relative z-10 flex gap-3 mt-4">
                 {/* Social links */}
                 <a
-                  href="https://linkedin.com"
+                  href="https://www.linkedin.com/in/t-s-madhavaraj-stm2000/"
                   target="_blank"
                   className="p-2 rounded-full bg-white/5 border border-white/10 text-slate-400 hover:text-white hover:bg-white/10 transition-colors cursor-none"
                   aria-label="LinkedIn"
@@ -241,15 +241,15 @@ export default function Hero() {
                   <FiLinkedin />
                 </a>
                 <a
-                  href="https://instagram.com"
+                  href="https://github.com/Aajumadhavan"
                   target="_blank"
                   className="p-2 rounded-full bg-white/5 border border-white/10 text-slate-400 hover:text-white hover:bg-white/10 transition-colors cursor-none"
                   aria-label="Instagram"
                 >
-                  <FiInstagram />
+                  <FiGithub />
                 </a>
                 <a
-                  href="mailto:contact@example.com"
+                  href="mailto:stmmadhavaraj07@gmail.com"
                   className="p-2 rounded-full bg-white/5 border border-white/10 text-slate-400 hover:text-white hover:bg-white/10 transition-colors cursor-none"
                   aria-label="Email"
                 >
@@ -259,32 +259,6 @@ export default function Hero() {
             </div>
           </motion.div>
         </div>
-      </div>
-
-      {/* Mouse Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 hidden md:block">
-        <button
-          onClick={() => handleScrollClick("about")}
-          className="flex flex-col items-center gap-2 text-slate-400 hover:text-white transition-colors cursor-none group"
-          aria-label="Scroll to About"
-        >
-          <span className="text-[9px] uppercase tracking-widest font-bold font-display opacity-80 group-hover:opacity-100 transition-opacity">
-            Scroll Down
-          </span>
-          <div className="w-6 h-10 rounded-full border border-white/20 flex justify-center p-1.5 transition-colors group-hover:border-white/40">
-            <motion.div
-              animate={{
-                y: [0, 12, 0],
-              }}
-              transition={{
-                duration: 1.5,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-              className="w-1.5 h-1.5 rounded-full bg-cyan-400"
-            />
-          </div>
-        </button>
       </div>
     </section>
   );

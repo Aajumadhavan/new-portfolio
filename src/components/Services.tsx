@@ -5,7 +5,7 @@ import { servicesData } from "@/data/portfolioData";
 import {
   FiTarget,
   FiCompass,
-  FiUsers,
+  FiShoppingBag,
   FiShare2,
   FiEdit3,
   FiPenTool,
@@ -15,14 +15,13 @@ import {
   FiSliders,
   FiBarChart2,
   FiBriefcase,
-  FiArrowRight,
 } from "react-icons/fi";
 import { motion } from "framer-motion";
 
-const iconMap: Record<string, React.ComponentType<any>> = {
+const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   "google-ads": FiTarget,
   "meta-ads": FiCompass,
-  "linkedin-ads": FiUsers,
+  shopify: FiShoppingBag,
   "social-media": FiShare2,
   creative: FiEdit3,
   "logo-design": FiPenTool,
@@ -94,27 +93,18 @@ export default function Services() {
               <motion.div
                 key={service.id}
                 variants={cardVariants}
-                className="glass-panel glass-panel-hover p-6 rounded-xl flex flex-col items-start justify-between min-h-[220px]"
+                className="glass-panel glass-panel-hover p-6 rounded-xl flex flex-col items-start min-h-[180px]"
               >
-                <div>
-                  {/* Icon wrap */}
-                  <div className="p-3 rounded-lg bg-indigo-500/10 border border-indigo-500/20 text-cyan-400 mb-5 inline-block">
-                    <IconComponent className="w-5 h-5" />
-                  </div>
-                  <h3 className="text-sm font-display font-bold text-white mb-3">
-                    {service.title}
-                  </h3>
-                  <p className="text-slate-400 text-[11px] leading-relaxed mb-6 font-sans">
-                    {service.description}
-                  </p>
+                {/* Icon wrap */}
+                <div className="p-3 rounded-lg bg-indigo-500/10 border border-indigo-500/20 text-cyan-400 mb-5 inline-block">
+                  <IconComponent className="w-5 h-5" />
                 </div>
-                
-                <button
-                  className="flex items-center gap-1.5 text-[10px] uppercase font-bold tracking-wider text-cyan-400 hover:text-indigo-400 transition-colors group cursor-none"
-                >
-                  Learn More
-                  <FiArrowRight className="group-hover:translate-x-1 transition-transform" />
-                </button>
+                <h3 className="text-sm font-display font-bold text-white mb-3">
+                  {service.title}
+                </h3>
+                <p className="text-slate-400 text-[11px] leading-relaxed font-sans">
+                  {service.description}
+                </p>
               </motion.div>
             );
           })}

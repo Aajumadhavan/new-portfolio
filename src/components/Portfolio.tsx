@@ -11,11 +11,6 @@ const categories = [
   "All",
   "Logos",
   "Posters",
-  "Social Media",
-  "Blogs",
-  "Campaigns",
-  "Brochures",
-  "Banners",
 ];
 
 export default function Portfolio() {

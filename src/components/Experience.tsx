@@ -59,10 +59,6 @@ export default function Experience() {
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
                   {/* Company & Role */}
                   <div className="flex items-center gap-4">
-                    {/* Logo Circle */}
-                    <div className="w-12 h-12 rounded-xl bg-gradient-to-tr from-indigo-600/20 to-cyan-500/20 border border-white/10 flex items-center justify-center font-display font-bold text-white text-sm">
-                      {exp.logoPlaceholder}
-                    </div>
                     <div>
                       <h3 className="text-sm md:text-base font-display font-bold text-white leading-snug">
                         {exp.role}
